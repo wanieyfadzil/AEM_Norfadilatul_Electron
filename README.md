@@ -6,6 +6,16 @@ A desktop dashboard application built with **Angular 14** and **Electron**, feat
 
 This project was developed as part of a technical assessment. It demonstrates the integration of a web application with a desktop environment, including authentication, dashboard visualization, and local data caching for offline access.
 
+## Screenshots
+
+### Sign In
+
+![Sign In Screen](screenshots/login.png)
+
+### Dashboard
+
+![Dashboard Overview](screenshots/dashboard.png)
+
 ## Features
 
 * **Authentication** — Login using the provided API.
