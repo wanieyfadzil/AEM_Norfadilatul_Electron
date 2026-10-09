@@ -1,0 +1,93 @@
+.card {
+  margin-top: 165px !important;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: #f7f7f7;
+  color: #111;
+  font-size: 16px;
+  font-weight: 510;
+  border-bottom: 0;
+}
+
+.card-body {
+  min-height: 220px;
+}
+
+.form-control {
+  height: 41px;
+  font-size: 13px;
+}
+
+.btn-primary {
+  width: 100px;
+  height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .form-control {
+  padding-right: 42px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+
+  transform: translateY(-50%);
+
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  background: transparent;
+
+  color: #6c757d;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  color: #343a40;
+}
+
+.password-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.sign-in-button {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-button:disabled {
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .card {
+    margin-top: 60px !important;
+  }
+
+  .card-body {
+    padding: 30px 20px !important;
+  }
+}

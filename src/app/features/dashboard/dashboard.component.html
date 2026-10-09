@@ -1,0 +1,171 @@
+<div class="dashboard-page">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark dashboard-navbar">
+
+    <span class="navbar-brand mb-0">
+      Dashboard
+    </span>
+
+    <button
+      type="button"
+      class="btn btn-link text-light sign-out-button"
+      (click)="logout()"
+    >
+      Sign Out
+    </button>
+
+  </nav>
+
+
+  <!-- Content -->
+  <main class="container-fluid dashboard-content">
+
+    <h1>Overview</h1>
+
+
+    <div
+      *ngIf="isLoading"
+      class="text-center loading-container"
+    >
+      Loading dashboard...
+    </div>
+
+    <div class="offline-banner" *ngIf="isOfflineCache">
+      <span class="offline-dot"></span>
+      <div>
+        <strong>Offline Mode</strong>
+        <p>Showing cached dashboard data. Some information may be outdated.</p>
+        <p *ngIf="cachedAt">
+          Last synced: {{ cachedAt | date:'dd MMM yyyy, hh:mm a' }}
+        </p>
+      </div>
+    </div>
+
+    <div
+      *ngIf="!isLoading && dashboardError"
+      class="alert alert-danger"
+    >
+      {{ dashboardError }}
+    </div>
+
+
+    <ng-container
+      *ngIf="!isLoading && !dashboardError"
+    >
+
+      <!-- Charts -->
+      <div class="row">
+
+        <!-- Donut -->
+        <div class="col-12 col-lg-6 mb-4">
+
+          <div class="card dashboard-card">
+
+            <div class="card-header">
+              Donut Chart
+            </div>
+
+            <div class="card-body chart-body">
+
+              <div
+                #donutChart
+                class="chart-container"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Bar -->
+        <div class="col-12 col-lg-6 mb-4">
+
+          <div class="card dashboard-card">
+
+            <div class="card-header">
+              Bar Chart
+            </div>
+
+            <div class="card-body chart-body">
+
+              <div
+                #barChart
+                class="chart-container"
+              ></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- User List -->
+      <h2>User List</h2>
+
+      <div class="table-responsive">
+
+        <table class="table table-bordered user-table">
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>User Name</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr
+              *ngFor="
+                let user of users;
+                let i = index
+              "
+            >
+
+              <td>{{ i + 1 }}</td>
+
+              <td>
+                {{ getFirstName(user) }}
+              </td>
+
+              <td>
+                {{ getLastName(user) }}
+              </td>
+
+              <td>
+                {{ getUsername(user) }}
+              </td>
+
+            </tr>
+
+
+            <tr *ngIf="users.length === 0">
+
+              <td
+                colspan="4"
+                class="text-center"
+              >
+                No users found.
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </ng-container>
+
+  </main>
+
+</div>
